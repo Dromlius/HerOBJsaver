@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/notnullgames/Herosaver.git"
+    "url": "git+https://github.com/reformagus/Herosaver.git"
   },
   "keywords": [],
   "author": "David Konsumer <konsumer@jetboystudio.com> (http://konsumer.js.org)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/notnullgames/Herosaver/issues"
+    "url": "https://github.com/reformagus/Herosaver/issues"
   },
-  "homepage": "https://github.com/notnullgames/Herosaver#readme",
+  "homepage": "https://github.com/reformagus/Herosaver#readme",
   "dependencies": {
     "file-saver": "^2.0.2",
     "three": "^0.116.1"
