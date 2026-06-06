@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Herosaver
 // @namespace    https://github.com/mungeondaster/Herosaver
-// @version      1.0.0
+// @version      1.0.1
 // @description  Save Configuration and STLs from websites using the THREE.JS framework
 // @author       reformagus
 // @homepageURL  https://github.com/mungeondaster/Herosaver
@@ -27,4 +27,5 @@
 
   GM_registerMenuCommand('Herosaver: Save STL', () => run('saveStl'))
   GM_registerMenuCommand('Herosaver: Save OBJ', () => run('saveObj'))
+  GM_registerMenuCommand('Herosaver: Save JSON', () => run('saveJson'))
 })()
