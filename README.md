@@ -4,7 +4,7 @@ Methodology to Save Configuration and STLs from websites using the THREE.JS fram
 
 Please **Always** think about the **developers** of such websites and try to **support them whenever possible**, as without them, there would be no such tools.
 
-This is based on some ideas from [TeaWithLucas](https://github.com/TeaWithLucas), and refined by [reformagus] (https://github.com/reformagus/Herosaver).
+This is based on some ideas from [TeaWithLucas](https://github.com/TeaWithLucas), and refined by [reformagus](https://github.com/reformagus/Herosaver).
 
 
 ## Tampermonkey
@@ -27,4 +27,5 @@ Alternatively, open the Tampermonkey dashboard, click **Create a new script**, a
 
 Go to the target page, open the Tampermonkey menu in the toolbar, and click **Herosaver: Save STL** or **Herosaver: Save OBJ**.
 
-Files need to be opened in Blender or similar 3D software to reveal model contained within cube mesh.  Export your final file from there.
+Download the "stl-cube-remover.html" in the repository and run it locally to remove cube shell and apply smoothing to your model's mesh.  
+*Note* - removing the cube shell on this web app will not reveal the model within for the preview.  Model will be visible in the re-exported STL. 
