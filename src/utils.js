@@ -190,6 +190,15 @@ export const process = (object3d, smooth, mirroredPose) => {
     console.log('DEBUG: UNIFORM')
     console.log('Material type:', mesh.material.type)
     console.log('Uniforms:', mesh.material.uniforms)
+    console.log('DEBUG: TEXTURE')
+    const tex = mesh.material.uniforms.colorAtlasMap.value
+    console.log('Texture:', tex)
+    console.log('Image:', tex.image)
+    console.log('Source:', tex.image?.src)
+    console.log('Width:', tex.image?.width)
+    console.log('Height:', tex.image?.height)
+    console.log('DEBUG: UV')
+    console.log('UV:', mesh.material.uniforms.uvPosScl.value)
     console.log('DEBUG: MESH_END')
 
     group.add(new Mesh(finalGeometry, material))
