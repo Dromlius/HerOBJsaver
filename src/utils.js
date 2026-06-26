@@ -180,13 +180,12 @@ export const process = (object3d, smooth, mirroredPose) => {
       finalGeometry = subdivide(finalGeometry, smooth)
     }
 
-    console.log({
-      name: mesh.name,
-      hasUV: !!finalGeometry.getAttribute('uv'),
-      material: mesh.material?.name,
-      hasTexture: !!mesh.material?.map,
-      texture: mesh.material?.map?.image?.src
-    })
+    console.log('DEBUG: MESH_START')
+    console.log('Mesh:', mesh.name)
+    console.log('UV attribute:', finalGeometry.getAttribute('uv'))
+    console.log('Material:', mesh.material)
+    console.log('Texture map:', mesh.material?.map)
+    console.log('DEBUG: MESH_END')
 
     group.add(new Mesh(finalGeometry, material))
   })
