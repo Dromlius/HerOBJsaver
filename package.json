@@ -28,10 +28,18 @@
     "pre-commit": "^1.2.2",
     "standard": "^14.3.4"
   },
-  "pre-commit": ["lint", "build"],
+  "pre-commit": [
+    "lint",
+    "build"
+  ],
   "standard": {
-  "ignore": [
-    "/dist/**/*.js"
+    "ignore": [
+      "/dist/**/*.js"
     ]
-  }
+  },
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "type": "commonjs"
 }
