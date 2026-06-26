@@ -130,9 +130,11 @@ export const process = (object3d, smooth, mirroredPose) => {
   // Make sure every node's world matrix is current before we read matrixWorld below.
   object3d.updateMatrixWorld(true)
 
+  console.log('Entering object3d.traverse')
   // traverse (not traverseVisible): HeroForge keeps some exported meshes flagged
   // invisible, so traverseVisible would silently drop parts of the model.
   object3d.traverse(mesh => {
+    console.log('Visited:', mesh)
     // Older Three.js (used by HeroForge) may not set isMesh/isSkinnedMesh flags —
     // fall back to checking the constructor name and skeleton presence.
     const isMesh = mesh.isMesh || (mesh.geometry && mesh.geometry.isBufferGeometry)
