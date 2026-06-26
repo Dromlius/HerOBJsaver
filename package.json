@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/reformagus/Herosaver.git"
+    "url": "git+https://github.com/Dromlius/HerOBJsaver.git"
   },
   "keywords": [],
   "author": "David Konsumer <konsumer@jetboystudio.com> (http://konsumer.js.org)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/reformagus/Herosaver/issues"
+    "url": "https://github.com/Dromlius/HerOBJsaver/issues"
   },
-  "homepage": "https://github.com/reformagus/Herosaver#readme",
+  "homepage": "https://github.com/Dromlius/HerOBJsaver#readme",
   "dependencies": {
     "file-saver": "^2.0.2",
     "three": "^0.116.1"
