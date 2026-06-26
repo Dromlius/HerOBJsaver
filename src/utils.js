@@ -199,6 +199,12 @@ export const process = (object3d, smooth, mirroredPose) => {
     console.log('Height:', tex.image?.height)
     console.log('DEBUG: UV')
     console.log('UV:', mesh.material.uniforms.uvPosScl.value)
+    console.log('DEBUG: COLORATLAS')
+    console.log('tex:', tex)
+    console.log('tex.source:', tex.source)
+    console.log('tex.__webglTexture:', tex.__webglTexture)
+    console.log('tex.isRenderTargetTexture:', tex.isRenderTargetTexture)
+    console.log('tex.isTexture:', tex.isTexture)
     console.log('DEBUG: MESH_END')
 
     group.add(new Mesh(finalGeometry, material))
