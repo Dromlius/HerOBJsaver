@@ -187,6 +187,9 @@ export const process = (object3d, smooth, mirroredPose) => {
     console.log('UV attribute:', finalGeometry.getAttribute('uv'))
     console.log('Material:', mesh.material)
     console.log('Texture map:', mesh.material?.map)
+    console.log('DEBUG: UNIFORM')
+    console.log('Material type:', mesh.material.type)
+    console.log('Uniforms:', mesh.material.uniforms)
     console.log('DEBUG: MESH_END')
 
     group.add(new Mesh(finalGeometry, material))
