@@ -182,6 +182,6 @@ export const process = (object3d, smooth, mirroredPose) => {
 
     group.add(new Mesh(finalGeometry, material))
   })
-  console.log("DEBUG: Returning Group")
+  console.log('DEBUG: Returning Group')
   return group
 }
