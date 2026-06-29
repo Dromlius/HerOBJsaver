@@ -190,7 +190,7 @@ export const process = (object3d, smooth, mirroredPose) => {
     console.log('DEBUG: MATERIAL')
     console.log('uniforms:', mesh.material.uniforms)
     console.log('blindlySetUniforms', mesh.material.blindlySetUniforms)
-    console.log('shaderInfo:',mesh.material.shaderInfo)
+    console.log('shaderInfo:', mesh.material.shaderInfo)
     console.log('DEBUG: UNIFORM')
     console.log('Material type:', mesh.material.type)
     console.log('Uniforms:', mesh.material.uniforms)
