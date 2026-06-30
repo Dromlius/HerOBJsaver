@@ -137,9 +137,24 @@ window.saveCleanStl = subdivisions => {
   saveAs(new Blob([cleaned], { type: 'application/octet-stream' }), `${getName()}_clean.stl`)
 }
 
+window.saveObj = subdivisions => {
+  const group = process(character, subdivisions, !!character.data.mirroredPose)
+
+  group.traverse(o => {
+    if (o.isMesh) {
+      console.log(
+        o.name,
+        o.geometry.attributes.position,
+        o.geometry.attributes.normal,
+        o.geometry.attributes.uv
+      )
+    }
+  })
+}
+
 // export character as OBJ file with the surrounding cube/shell removed.
 // Routes through the STL triangles so it strips the exact same cube as the STL.
-window.saveObj = subdivisions => {
-  const triangles = removeCubeTriangles(parseSTL(exportSTLBuffer(subdivisions)))
-  saveAs(new Blob([exportOBJFromTriangles(triangles)], { type: 'application/octet-stream;charset=utf-8' }), `${getName()}.obj`)
-}
+// window.saveObj = subdivisions => {
+//   const triangles = removeCubeTriangles(parseSTL(exportSTLBuffer(subdivisions)))
+//   saveAs(new Blob([exportOBJFromTriangles(triangles)], { type: 'application/octet-stream;charset=utf-8' }), `${getName()}.obj`)
+// }
