@@ -183,6 +183,27 @@ export const process = (object3d, smooth, mirroredPose) => {
     }
 
     console.log('DEBUG: MESH_START')
+    console.log(mesh.material)
+
+    if (Array.isArray(mesh.material)) {
+      mesh.material.forEach((m, i) => {
+        console.log('material', i, m)
+        console.log('map', m.map)
+        console.log('uniforms', m.uniforms)
+      })
+    } else {
+      console.log('map', mesh.material.map)
+      console.log('uniforms', mesh.material.uniforms)
+    }
+    console.log('DEBUG: MESH_MID')
+    const u = mesh.material.uniforms
+
+    for (const k in u) {
+      const v = u[k].value
+
+      if (v && v.isTexture) { console.log(k, v) }
+    }
+    console.log('DEBUG: MESH_MID_2')
     console.log('Mesh:', mesh.name)
     console.log('UV attribute:', finalGeometry.getAttribute('uv'))
     console.log('Material:', mesh.material)
