@@ -4,7 +4,7 @@ import { STLExporter } from 'three/examples/jsm/exporters/STLExporter.js'
 import { saveAs } from 'file-saver'
 import { character, getName, process } from './utils'
 import { parseSTL, removeCubeTriangles, removeCubeFromSTL } from './cube-remover'
-import { exportOBJFromTriangles } from './obj-exporter'
+import { HeroOBJExporter } from './obj-exporter-v2'
 
 // Export the character to a binary STL ArrayBuffer (the common starting point
 // for the STL/OBJ exports and the cube removal that both share).
@@ -137,24 +137,41 @@ window.saveCleanStl = subdivisions => {
   saveAs(new Blob([cleaned], { type: 'application/octet-stream' }), `${getName()}_clean.stl`)
 }
 
-window.saveObj = subdivisions => {
-  const group = process(character, subdivisions, !!character.data.mirroredPose)
+// window.saveObj = subdivisions => {
+//   const group = process(character, subdivisions, !!character.data.mirroredPose)
+//
+//   group.traverse(o => {
+//     if (o.isMesh) {
+//       console.log(
+//         o.name,
+//         o.geometry.attributes.position,
+//         o.geometry.attributes.normal,
+//         o.geometry.attributes.uv
+//       )
+//     }
+//   })
+// }
 
-  group.traverse(o => {
-    if (o.isMesh) {
-      console.log(
-        o.name,
-        o.geometry.attributes.position,
-        o.geometry.attributes.normal,
-        o.geometry.attributes.uv
-      )
-    }
-  })
+window.saveObj = async subdivisions => {
+  const group = process(
+    character,
+    subdivisions,
+    !!character.data.mirroredPose
+  )
+
+  const result = await exportOBJ(group)
+
+  saveAs(
+    new Blob([result.obj], {
+      type: 'application/octet-stream;charset=utf-8'
+    }),
+    `${getName()}.obj`
+  )
 }
 
 // export character as OBJ file with the surrounding cube/shell removed.
 // Routes through the STL triangles so it strips the exact same cube as the STL.
-// window.saveObj = subdivisions => {
-//   const triangles = removeCubeTriangles(parseSTL(exportSTLBuffer(subdivisions)))
-//   saveAs(new Blob([exportOBJFromTriangles(triangles)], { type: 'application/octet-stream;charset=utf-8' }), `${getName()}.obj`)
-// }
+window.saveObj = subdivisions => {
+  const triangles = removeCubeTriangles(parseSTL(exportSTLBuffer(subdivisions)))
+  saveAs(new Blob([exportOBJFromTriangles(triangles)], { type: 'application/octet-stream;charset=utf-8' }), `${getName()}.obj`)
+}
